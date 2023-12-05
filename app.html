@@ -1,0 +1,919 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>back-end/app &#8212; Project_3 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Project 3’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="back-end-app">
+<h1>back-end/app<a class="headerlink" href="#back-end-app" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="currentMenu">
+<span class="sig-name descname"><span class="pre">currentMenu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#currentMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get all items from the current menu and return as JSON.</p>
+<p>This route queries the ‘menu’ table and returns the menu items in JSON format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary containing menu items in JSON format.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;item_1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;item&#39;</span><span class="p">:</span> <span class="s1">&#39;Item 1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mf">10.99</span><span class="p">,</span>
+        <span class="s1">&#39;imglink&#39;</span><span class="p">:</span> <span class="s1">&#39;https://example.com/item1.jpg&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Description for Item 1.&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;item_2&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;item&#39;</span><span class="p">:</span> <span class="s1">&#39;Item 2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mf">15.99</span><span class="p">,</span>
+        <span class="s1">&#39;imglink&#39;</span><span class="p">:</span> <span class="s1">&#39;https://example.com/item2.jpg&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Description for Item 2.&#39;</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="getInventory">
+<span class="sig-name descname"><span class="pre">getInventory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getInventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get inventory items and return as JSON.</p>
+<p>This route queries the ‘inventory’ table and returns the items in JSON format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary containing inventory items in JSON format.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;item_1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;item&#39;</span><span class="p">:</span> <span class="s1">&#39;Item 1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s1">&#39;minimum&#39;</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;item_2&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;item&#39;</span><span class="p">:</span> <span class="s1">&#39;Item 2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s1">&#39;minimum&#39;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="addInvItem">
+<span class="sig-name descname"><span class="pre">addInvItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#addInvItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to add an inventory item.</p>
+<p>This route takes a request parameter and adds a new item to the ‘inventory’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>req</strong> (<em>str</em>) – The request parameter containing item details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Success or error message.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">addInvItem</span><span class="o">/</span><span class="n">Item</span><span class="o">-</span><span class="n">Name</span><span class="o">+</span><span class="mi">15</span><span class="o">+</span><span class="mi">5</span>
+<span class="c1"># Success</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="deleteInventoryItem">
+<span class="sig-name descname"><span class="pre">deleteInventoryItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deleteInventoryItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to delete an inventory item.</p>
+<p>This route takes an item name and deletes the corresponding item from the ‘inventory’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>str</em>) – The name of the item to be deleted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Success or error message.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">deleteInventoryItem</span><span class="o">/</span><span class="n">Item</span><span class="o">-</span><span class="n">Name</span>
+<span class="c1"># Success</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shipment">
+<span class="sig-name descname"><span class="pre">shipment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ship</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shipment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to update inventory based on a shipment.</p>
+<p>This route takes a shipment parameter and updates the inventory quantities accordingly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ship</strong> (<em>str</em>) – The shipment parameter containing item and quantity details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Success or error message.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shipment</span><span class="o">/</span><span class="n">Waffle</span><span class="o">-</span><span class="mi">10</span><span class="o">+</span><span class="n">ChickenSPACETender</span><span class="o">-</span><span class="mi">11</span><span class="o">+</span><span class="n">Egg</span><span class="o">-</span><span class="mi">12</span>
+<span class="c1"># Success</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="getOrders">
+<span class="sig-name descname"><span class="pre">getOrders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getOrders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get orders based on a date range and return as JSON.</p>
+<p>This route queries the ‘orders’ table and returns the orders in JSON format for a given date range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>req</strong> (<em>str</em>) – The request parameter containing the start date.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary containing order details in JSON format.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">getOrders</span><span class="o">/</span><span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="c1"># {</span>
+<span class="c1">#     &#39;1&#39;: {</span>
+<span class="c1">#         &#39;orderid&#39;: 1,</span>
+<span class="c1">#         &#39;date&#39;: &#39;2023-01-01&#39;,</span>
+<span class="c1">#         &#39;menuid&#39;: [&#39;Item 1, &#39;, &#39;Item 2, &#39;],</span>
+<span class="c1">#         &#39;comments&#39;: &#39;Special instructions&#39;,</span>
+<span class="c1">#         &#39;status&#39;: &#39;Completed&#39;</span>
+<span class="c1">#     },</span>
+<span class="c1">#     ...</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="testVariable">
+<span class="sig-name descname"><span class="pre">testVariable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ingredient</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testVariable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to test a variable with a provided ingredient.</p>
+<p>This route takes an ingredient parameter and queries the ‘orders’ table based on the ingredient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ingredient</strong> (<em>str</em>) – The ingredient to be tested.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>JSON result of the query.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>JSON</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">testVariable</span><span class="o">/</span><span class="n">Item</span><span class="o">-</span><span class="n">Name</span>
+<span class="c1"># [</span>
+<span class="c1">#     (1, &#39;2023-01-01&#39;, &#39;Item 1&#39;, &#39;Special instructions&#39;, &#39;Completed&#39;),</span>
+<span class="c1">#     ...</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ingredients">
+<span class="sig-name descname"><span class="pre">ingredients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ingredients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get all ingredients and return as JSON.</p>
+<p>This route queries the ‘ingredients’ table and returns all ingredients in JSON format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of ingredients in JSON format.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ingredients</span>
+<span class="c1"># [</span>
+<span class="c1">#     (1, &#39;Ingredient 1&#39;),</span>
+<span class="c1">#     (2, &#39;Ingredient 2&#39;),</span>
+<span class="c1">#     ...</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="managerMenu">
+<span class="sig-name descname"><span class="pre">managerMenu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#managerMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get menu items for manager view.</p>
+<p>This route queries the ‘menu’ table and returns item names and prices in JSON format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary containing item names and prices in JSON format.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Item 1&#39;</span><span class="p">:</span> <span class="mf">10.99</span><span class="p">,</span>
+    <span class="s1">&#39;Item 2&#39;</span><span class="p">:</span> <span class="mf">15.99</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="addMenuItem">
+<span class="sig-name descname"><span class="pre">addMenuItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#addMenuItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to add a new menu item.</p>
+<p>This route takes a variable parameter and adds a new item to the ‘menu’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>var</strong> (<em>str</em>) – The parameter containing item details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Success or error message.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/addMenuItem/Pizza+9.99+Coffee$2NEXTOrange-Juice$1NEXT+http://www.example.com/item1.jpg+Delicious-tomato-sauce-on-bread
+# Success
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="updateMenuItem">
+<span class="sig-name descname"><span class="pre">updateMenuItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updateMenuItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to update a menu item.</p>
+<p>This route takes a variable parameter and updates an existing item in the ‘menu’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>var</strong> (<em>str</em>) – The parameter containing item details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Success or error message.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/updateMenuItem/Pizza+Gummy-Pizza+9.99+Frozen-Pizza$2NEXT+https://www.example.com/item1.jpg+Gummy
+# Success
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="insertTest">
+<span class="sig-name descname"><span class="pre">insertTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#insertTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to insert test data into the ‘orders_test’ table.</p>
+<p>This route takes a variable parameter and inserts test data into the ‘orders_test’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>var</strong> (<em>str</em>) – The parameter containing test data details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Success or error message.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">insertTest</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;2019-07-23&#39;</span><span class="p">,</span> <span class="mi">6</span>
+<span class="c1"># Success :)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="insertOrder">
+<span class="sig-name descname"><span class="pre">insertOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#insertOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to insert an order into the ‘orders’ table.</p>
+<p>This route takes a parameter and converts it into an order in the ‘orders’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>order</strong> (<em>str</em>) – The parameter containing order details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Success or error message.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">insertOrder</span><span class="o">/</span><span class="n">Item</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">Item</span><span class="o">-</span><span class="mi">2</span>
+<span class="c1"># Success :)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="addOrder">
+<span class="sig-name descname"><span class="pre">addOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#addOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route for test purposes.</p>
+<p>This route takes a parameter and returns a success message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>order</strong> (<em>str</em>) – The order details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A JSON response.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>JSON</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">addOrder</span><span class="o">/</span><span class="n">Item</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">Item</span><span class="o">-</span><span class="mi">2</span>
+<span class="c1"># {&#39;status&#39;: &#39;success&#39;, &#39;order&#39;: &#39;Item-1+Item-2&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="SalesReport">
+<span class="sig-name descname"><span class="pre">SalesReport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to generate a sales report.</p>
+<p>This route takes a JSON parameter with a selected date and returns a sales report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary containing sales report data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Item 1&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">&#39;Item 2&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ExcessReport">
+<span class="sig-name descname"><span class="pre">ExcessReport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ExcessReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to generate an excess report.</p>
+<p>This route takes a JSON parameter with a selected date and returns items with excess inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary containing items with excess inventory.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Item 1&#39;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Item 2&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="whatSellsTogether">
+<span class="sig-name descname"><span class="pre">whatSellsTogether</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#whatSellsTogether" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to find items that sell together.</p>
+<p>This route takes a JSON parameter with start and end dates, then returns pairs of items that are often sold together.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary containing pairs of items and their count.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Item 1 and Item 2&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">&#39;Item 3 and Item 4&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="productUsage">
+<span class="sig-name descname"><span class="pre">productUsage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#productUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get product usage.</p>
+<p>This route takes a JSON parameter with start and end dates, then returns data about the products used during that period.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list containing dictionaries with product usage details.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;order_id&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="s1">&#39;order_time&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-07-23 12:34:56&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;menu_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Item 1&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;order_id&#39;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+        <span class="s1">&#39;order_time&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-07-23 14:45:30&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;menu_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Item 2&#39;</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="restockReport">
+<span class="sig-name descname"><span class="pre">restockReport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restockReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to generate a restock report.</p>
+<p>This route queries the ‘inventory’ table and returns items below their minimum quantity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary containing items below their minimum quantity.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Item 1&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">&#39;Item 2&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="managerMenuPrices">
+<span class="sig-name descname"><span class="pre">managerMenuPrices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#managerMenuPrices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get manager menu prices.</p>
+<p>This route queries the ‘menu’ table and returns item names and prices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list containing item names and prices.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Item 1&#39;</span><span class="p">,</span> <span class="mf">10.99</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Item 2&#39;</span><span class="p">,</span> <span class="mf">15.99</span><span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="manaerMenuPriceSubmit">
+<span class="sig-name descname"><span class="pre">manaerMenuPriceSubmit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manaerMenuPriceSubmit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to submit modified menu item prices.</p>
+<p>This route expects a JSON payload with ‘newPrice’ and ‘productName’ fields to update the menu item price.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A JSON response indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Prices updated successfully--backend&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="managerMenuDelete">
+<span class="sig-name descname"><span class="pre">managerMenuDelete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#managerMenuDelete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to delete a menu item.</p>
+<p>This route takes the name of the menu item to be deleted and removes it from the ‘menu’ table and associated ‘menuinfo’ records.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>str</em>) – The name of the menu item to be deleted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="createEmployee">
+<span class="sig-name descname"><span class="pre">createEmployee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#createEmployee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to add a new employee.</p>
+<p>This route takes a parameter string containing the employee’s name and position, then adds the employee to the ‘employee_data’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parameter</strong> (<em>str</em>) – A string containing the employee’s name and position, separated by ‘&amp;’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="getPosition">
+<span class="sig-name descname"><span class="pre">getPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get an employee’s position.</p>
+<p>This route takes the name of an employee and returns their position from the ‘employee_data’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name of the employee.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string representing the employee’s position.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Manager&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="updateEmployee">
+<span class="sig-name descname"><span class="pre">updateEmployee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updateEmployee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to update employee information.</p>
+<p>This route takes a parameter string containing the employee’s ID, updated name, and updated position. It updates the corresponding record in the ‘employee_data’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parameter</strong> (<em>str</em>) – A string containing the employee’s ID, updated name, and updated position, separated by ‘&amp;’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="removeEmployee">
+<span class="sig-name descname"><span class="pre">removeEmployee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#removeEmployee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to remove an employee.</p>
+<p>This route takes the ID of an employee and removes the corresponding record from the ‘employee_data’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The ID of the employee to be removed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="removeOrder">
+<span class="sig-name descname"><span class="pre">removeOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#removeOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to remove an order.</p>
+<p>This route takes the ID of an order and removes the corresponding record from the ‘orders’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The ID of the order to be removed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="getEmployees">
+<span class="sig-name descname"><span class="pre">getEmployees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getEmployees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get a list of employees.</p>
+<p>This route retrieves data from the ‘employee_data’ table and returns a JSON object with employee information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A JSON object containing employee information.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;Manager&#39;</span><span class="p">},</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;Cashier&#39;</span><span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="getPendingOrders">
+<span class="sig-name descname"><span class="pre">getPendingOrders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getPendingOrders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to get a list of pending orders.</p>
+<p>This route retrieves data from the ‘orders’ table for orders with a ‘pending’ status and returns a JSON object with order information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A JSON object containing pending orders.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Item 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Item 2&#39;</span><span class="p">],</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Item 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Item 4&#39;</span><span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="completeOrder">
+<span class="sig-name descname"><span class="pre">completeOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#completeOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to mark an order as completed.</p>
+<p>This route takes the ID of an order and updates its status in the ‘orders’ table to ‘completed’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The ID of the order to be marked as completed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cancelOrder">
+<span class="sig-name descname"><span class="pre">cancelOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cancelOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to cancel an order.</p>
+<p>This route takes the ID of an order and updates its status in the ‘orders’ table to ‘canceled’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The ID of the order to be canceled.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="updateOrder">
+<span class="sig-name descname"><span class="pre">updateOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updateOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to update an order.</p>
+<p>This route takes a parameter string containing the order details (ID, timestamp, comments, status) and updates the corresponding record in the ‘orders’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>var</strong> (<em>str</em>) – A string containing the order details separated by ‘&amp;’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="deleteOrder">
+<span class="sig-name descname"><span class="pre">deleteOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deleteOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to delete an order.</p>
+<p>This route takes the ID of an order and removes the corresponding record from the ‘orders’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The ID of the order to be deleted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Success&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="updateInventoryItem">
+<span class="sig-name descname"><span class="pre">updateInventoryItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updateInventoryItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route to update an inventory item.</p>
+<p>This route takes a parameter string containing the original name, new name, quantity, and minimum quantity of an inventory item. It updates the corresponding record in the ‘inventory’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>str</em>) – A string containing the item details separated by ‘+’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;UPDATE inventory SET item = &#39;</span><span class="n">New</span> <span class="n">Item</span><span class="s1">&#39;, quantity = 10, minimum = 5 WHERE item = &#39;</span><span class="n">Old</span> <span class="n">Item</span><span class="s1">&#39;;&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Project_3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">back-end/app</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Project 3’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Christion Bradley, Pranav Civi, Dani Martinis, B.J. Min, Justin Kline.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/app.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

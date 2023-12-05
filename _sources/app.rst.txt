@@ -1,0 +1,592 @@
+back-end/app
+=============
+
+.. function:: currentMenu()
+
+   Route to get all items from the current menu and return as JSON.
+
+   This route queries the 'menu' table and returns the menu items in JSON format.
+
+   :return: A dictionary containing menu items in JSON format.
+   :rtype: dict
+
+   Example::
+
+      {
+          'item_1': {
+              'id': 1,
+              'item': 'Item 1',
+              'price': 10.99,
+              'imglink': 'https://example.com/item1.jpg',
+              'description': 'Description for Item 1.'
+          },
+          'item_2': {
+              'id': 2,
+              'item': 'Item 2',
+              'price': 15.99,
+              'imglink': 'https://example.com/item2.jpg',
+              'description': 'Description for Item 2.'
+          },
+          ...
+      }
+
+.. function:: getInventory()
+
+   Route to get inventory items and return as JSON.
+
+   This route queries the 'inventory' table and returns the items in JSON format.
+
+   :return: A dictionary containing inventory items in JSON format.
+   :rtype: dict
+
+   Example::
+
+      {
+          'item_1': {
+              'item': 'Item 1',
+              'quantity': 10,
+              'minimum': 2
+          },
+          'item_2': {
+              'item': 'Item 2',
+              'quantity': 5,
+              'minimum': 1
+          },
+          ...
+      }
+
+.. function:: addInvItem(req)
+
+   Route to add an inventory item.
+
+   This route takes a request parameter and adds a new item to the 'inventory' table.
+
+   :param req: The request parameter containing item details.
+   :type req: str
+   :return: Success or error message.
+   :rtype: str
+
+   Example::
+
+      /addInvItem/Item-Name+15+5
+      # Success
+
+.. function:: deleteInventoryItem(item)
+
+   Route to delete an inventory item.
+
+   This route takes an item name and deletes the corresponding item from the 'inventory' table.
+
+   :param item: The name of the item to be deleted.
+   :type item: str
+   :return: Success or error message.
+   :rtype: str
+
+   Example::
+
+      /deleteInventoryItem/Item-Name
+      # Success
+
+.. function:: shipment(ship)
+
+   Route to update inventory based on a shipment.
+
+   This route takes a shipment parameter and updates the inventory quantities accordingly.
+
+   :param ship: The shipment parameter containing item and quantity details.
+   :type ship: str
+   :return: Success or error message.
+   :rtype: str
+
+   Example::
+
+      /shipment/Waffle-10+ChickenSPACETender-11+Egg-12
+      # Success
+
+.. function:: getOrders(req)
+
+   Route to get orders based on a date range and return as JSON.
+
+   This route queries the 'orders' table and returns the orders in JSON format for a given date range.
+
+   :param req: The request parameter containing the start date.
+   :type req: str
+   :return: A dictionary containing order details in JSON format.
+   :rtype: dict
+
+   Example::
+
+      /getOrders/2023-01-01
+      # {
+      #     '1': {
+      #         'orderid': 1,
+      #         'date': '2023-01-01',
+      #         'menuid': ['Item 1, ', 'Item 2, '],
+      #         'comments': 'Special instructions',
+      #         'status': 'Completed'
+      #     },
+      #     ...
+      # }
+
+.. function:: testVariable(ingredient)
+
+   Route to test a variable with a provided ingredient.
+
+   This route takes an ingredient parameter and queries the 'orders' table based on the ingredient.
+
+   :param ingredient: The ingredient to be tested.
+   :type ingredient: str
+   :return: JSON result of the query.
+   :rtype: JSON
+
+   Example::
+
+      /testVariable/Item-Name
+      # [
+      #     (1, '2023-01-01', 'Item 1', 'Special instructions', 'Completed'),
+      #     ...
+      # ]
+
+.. function:: ingredients()
+
+   Route to get all ingredients and return as JSON.
+
+   This route queries the 'ingredients' table and returns all ingredients in JSON format.
+
+   :return: A list of ingredients in JSON format.
+   :rtype: list
+
+   Example::
+
+      /ingredients
+      # [
+      #     (1, 'Ingredient 1'),
+      #     (2, 'Ingredient 2'),
+      #     ...
+      # ]
+
+
+.. function:: managerMenu()
+
+   Route to get menu items for manager view.
+
+   This route queries the 'menu' table and returns item names and prices in JSON format.
+
+   :return: A dictionary containing item names and prices in JSON format.
+   :rtype: dict
+
+   Example::
+
+      {
+          'Item 1': 10.99,
+          'Item 2': 15.99,
+          ...
+      }
+
+.. function:: addMenuItem(var)
+
+   Route to add a new menu item.
+
+   This route takes a variable parameter and adds a new item to the 'menu' table.
+
+   :param var: The parameter containing item details.
+   :type var: str
+   :return: Success or error message.
+   :rtype: str
+
+   Example::
+
+      /addMenuItem/Pizza+9.99+Coffee$2NEXTOrange-Juice$1NEXT+http://www.example.com/item1.jpg+Delicious-tomato-sauce-on-bread
+      # Success
+
+.. function:: updateMenuItem(var)
+
+   Route to update a menu item.
+
+   This route takes a variable parameter and updates an existing item in the 'menu' table.
+
+   :param var: The parameter containing item details.
+   :type var: str
+   :return: Success or error message.
+   :rtype: str
+
+   Example::
+
+      /updateMenuItem/Pizza+Gummy-Pizza+9.99+Frozen-Pizza$2NEXT+https://www.example.com/item1.jpg+Gummy
+      # Success
+
+.. function:: insertTest(var)
+
+   Route to insert test data into the 'orders_test' table.
+
+   This route takes a variable parameter and inserts test data into the 'orders_test' table.
+
+   :param var: The parameter containing test data details.
+   :type var: str
+   :return: Success or error message.
+   :rtype: str
+
+   Example::
+
+      /insertTest/1, 30, '2019-07-23', 6
+      # Success :)
+
+.. function:: insertOrder(order)
+
+   Route to insert an order into the 'orders' table.
+
+   This route takes a parameter and converts it into an order in the 'orders' table.
+
+   :param order: The parameter containing order details.
+   :type order: str
+   :return: Success or error message.
+   :rtype: str
+
+   Example::
+
+      /insertOrder/Item-1+Item-2
+      # Success :)
+
+.. function:: addOrder(order)
+
+   Route for test purposes.
+
+   This route takes a parameter and returns a success message.
+
+   :param order: The order details.
+   :type order: str
+   :return: A JSON response.
+   :rtype: JSON
+
+   Example::
+
+      /addOrder/Item-1+Item-2
+      # {'status': 'success', 'order': 'Item-1+Item-2'}
+
+.. function:: SalesReport()
+
+   Route to generate a sales report.
+
+   This route takes a JSON parameter with a selected date and returns a sales report.
+
+   :return: A dictionary containing sales report data.
+   :rtype: dict
+
+   Example::
+
+      {
+          'Item 1': 5,
+          'Item 2': 3,
+          ...
+      }
+
+
+.. function:: ExcessReport()
+
+   Route to generate an excess report.
+
+   This route takes a JSON parameter with a selected date and returns items with excess inventory.
+
+   :return: A dictionary containing items with excess inventory.
+   :rtype: dict
+
+   Example::
+
+      {
+          0: 'Item 1',
+          1: 'Item 2',
+          ...
+      }
+
+.. function:: whatSellsTogether()
+
+   Route to find items that sell together.
+
+   This route takes a JSON parameter with start and end dates, then returns pairs of items that are often sold together.
+
+   :return: A dictionary containing pairs of items and their count.
+   :rtype: dict
+
+   Example::
+
+      {
+          'Item 1 and Item 2': 5,
+          'Item 3 and Item 4': 3,
+          ...
+      }
+
+.. function:: productUsage()
+
+   Route to get product usage.
+
+   This route takes a JSON parameter with start and end dates, then returns data about the products used during that period.
+
+   :return: A list containing dictionaries with product usage details.
+   :rtype: list
+
+   Example::
+
+      [
+          {
+              'id': 1,
+              'order_id': 30,
+              'order_time': '2019-07-23 12:34:56',
+              'menu_name': 'Item 1'
+          },
+          {
+              'id': 2,
+              'order_id': 31,
+              'order_time': '2019-07-23 14:45:30',
+              'menu_name': 'Item 2'
+          },
+          ...
+      ]
+
+.. function:: restockReport()
+
+   Route to generate a restock report.
+
+   This route queries the 'inventory' table and returns items below their minimum quantity.
+
+   :return: A dictionary containing items below their minimum quantity.
+   :rtype: dict
+
+   Example::
+
+      {
+          'Item 1': 5,
+          'Item 2': 8,
+          ...
+      }
+
+.. function:: managerMenuPrices()
+
+   Route to get manager menu prices.
+
+   This route queries the 'menu' table and returns item names and prices.
+
+   :return: A list containing item names and prices.
+   :rtype: list
+
+   Example::
+
+      [
+          ['Item 1', 10.99],
+          ['Item 2', 15.99],
+          ...
+      ]
+
+
+.. function:: manaerMenuPriceSubmit()
+
+   Route to submit modified menu item prices.
+
+   This route expects a JSON payload with 'newPrice' and 'productName' fields to update the menu item price.
+
+   :return: A JSON response indicating the success or failure of the operation.
+   :rtype: dict
+
+   Example::
+
+      {
+          'message': 'Prices updated successfully--backend'
+      }
+
+.. function:: managerMenuDelete(item)
+
+   Route to delete a menu item.
+
+   This route takes the name of the menu item to be deleted and removes it from the 'menu' table and associated 'menuinfo' records.
+
+   :param item: The name of the menu item to be deleted.
+   :type item: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: createEmployee(parameter)
+
+   Route to add a new employee.
+
+   This route takes a parameter string containing the employee's name and position, then adds the employee to the 'employee_data' table.
+
+   :param parameter: A string containing the employee's name and position, separated by '&'.
+   :type parameter: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: getPosition(name)
+
+   Route to get an employee's position.
+
+   This route takes the name of an employee and returns their position from the 'employee_data' table.
+
+   :param name: The name of the employee.
+   :type name: str
+   :return: A string representing the employee's position.
+   :rtype: str
+
+   Example::
+
+      'Manager'
+
+.. function:: updateEmployee(parameter)
+
+   Route to update employee information.
+
+   This route takes a parameter string containing the employee's ID, updated name, and updated position. It updates the corresponding record in the 'employee_data' table.
+
+   :param parameter: A string containing the employee's ID, updated name, and updated position, separated by '&'.
+   :type parameter: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: removeEmployee(id)
+
+   Route to remove an employee.
+
+   This route takes the ID of an employee and removes the corresponding record from the 'employee_data' table.
+
+   :param id: The ID of the employee to be removed.
+   :type id: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: removeOrder(id)
+
+   Route to remove an order.
+
+   This route takes the ID of an order and removes the corresponding record from the 'orders' table.
+
+   :param id: The ID of the order to be removed.
+   :type id: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: getEmployees()
+
+   Route to get a list of employees.
+
+   This route retrieves data from the 'employee_data' table and returns a JSON object with employee information.
+
+   :return: A JSON object containing employee information.
+   :rtype: dict
+
+   Example::
+
+      {
+          1: {'id': 1, 'name': 'John Doe', 'position': 'Manager'},
+          2: {'id': 2, 'name': 'Jane Smith', 'position': 'Cashier'},
+          ...
+      }
+
+.. function:: getPendingOrders()
+
+   Route to get a list of pending orders.
+
+   This route retrieves data from the 'orders' table for orders with a 'pending' status and returns a JSON object with order information.
+
+   :return: A JSON object containing pending orders.
+   :rtype: dict
+
+   Example::
+
+      {
+          1: ['Item 1', 'Item 2'],
+          2: ['Item 3', 'Item 4'],
+          ...
+      }
+
+.. function:: completeOrder(id)
+
+   Route to mark an order as completed.
+
+   This route takes the ID of an order and updates its status in the 'orders' table to 'completed'.
+
+   :param id: The ID of the order to be marked as completed.
+   :type id: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: cancelOrder(id)
+
+   Route to cancel an order.
+
+   This route takes the ID of an order and updates its status in the 'orders' table to 'canceled'.
+
+   :param id: The ID of the order to be canceled.
+   :type id: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: updateOrder(var)
+
+   Route to update an order.
+
+   This route takes a parameter string containing the order details (ID, timestamp, comments, status) and updates the corresponding record in the 'orders' table.
+
+   :param var: A string containing the order details separated by '&'.
+   :type var: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: deleteOrder(id)
+
+   Route to delete an order.
+
+   This route takes the ID of an order and removes the corresponding record from the 'orders' table.
+
+   :param id: The ID of the order to be deleted.
+   :type id: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'Success'
+
+.. function:: updateInventoryItem(item)
+
+   Route to update an inventory item.
+
+   This route takes a parameter string containing the original name, new name, quantity, and minimum quantity of an inventory item. It updates the corresponding record in the 'inventory' table.
+
+   :param item: A string containing the item details separated by '+'.
+   :type item: str
+   :return: A string indicating the success or failure of the operation.
+   :rtype: str
+
+   Example::
+
+      'UPDATE inventory SET item = 'New Item', quantity = 10, minimum = 5 WHERE item = 'Old Item';'
